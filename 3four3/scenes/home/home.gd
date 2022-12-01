@@ -8,11 +8,13 @@ func _ready():
 func _on_blue_btn_pressed():
 	# select red team
 	_team = 2
-	print('on blue team')
+	State.team_select(State.Team.BLUE)
+	#print('on blue team')
 
 func _on_red_btn_pressed():
 	# select red team
 	_team = 1
+	State.team_select(State.Team.RED)
 	print('on red team')
 
 func _on_play_pressed():
@@ -21,11 +23,11 @@ func _on_play_pressed():
 		0:
 			print('select team')
 		1:
-			print('playing as Red Team')
+			#print('playing as Red Team')
 			var _err = get_tree().change_scene("res://scenes/play/play.tscn")
 
 		2:
-			print('playing as Blue Team')
+			#print('playing as Blue Team')
 			var _err = get_tree().change_scene("res://scenes/play/play.tscn")
 
 func _process(_delta):

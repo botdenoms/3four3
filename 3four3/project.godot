@@ -14,10 +14,18 @@ config/name="3four3"
 run/main_scene="res://scenes/home/home.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+State="*res://scenes/state.gd"
+
 [display]
 
 window/size/width=375
 window/size/height=812
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
 
 [physics]
 
