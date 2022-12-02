@@ -35,8 +35,10 @@ func _ready():
 	to_point = position
 
 func _on_Area2D_input_event(_viewport, event, _shape_idx):
-	if event is InputEventMouseButton:
-		if event.pressed and event.button_index == BUTTON_LEFT:
+	if not event is InputEventScreenTouch:
+		return
+	else:
+		if event.is_pressed():
 			#print(event.position) # click position
 			#print(position) # object position
 			#print('player clicked at position: ', position)
