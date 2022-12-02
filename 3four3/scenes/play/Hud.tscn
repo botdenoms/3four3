@@ -98,7 +98,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color( 0.286275, 0.427451, 0.376471, 1 )
 
-[node name="Label" type="Label" parent="VBoxContainer2/HBoxContainer2/CenterContainer3/score"]
+[node name="scoreLabel" type="Label" parent="VBoxContainer2/HBoxContainer2/CenterContainer3/score"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_fonts/font = ExtResource( 6 )
@@ -157,5 +157,249 @@ text = "Infromation display board"
 align = 1
 valign = 1
 
+[node name="windisp" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="windisp"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="topbox" type="ColorRect" parent="windisp/VBoxContainer"]
+margin_right = 375.0
+margin_bottom = 250.0
+rect_min_size = Vector2( 0, 250 )
+mouse_filter = 2
+color = Color( 0.12549, 0.141176, 0.192157, 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="windisp/VBoxContainer/topbox"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="CenterContainer" type="CenterContainer" parent="windisp/VBoxContainer/topbox/VBoxContainer"]
+margin_right = 375.0
+margin_bottom = 170.0
+size_flags_vertical = 3
+
+[node name="winnner" type="Label" parent="windisp/VBoxContainer/topbox/VBoxContainer"]
+margin_top = 174.0
+margin_right = 375.0
+margin_bottom = 198.0
+custom_fonts/font = ExtResource( 5 )
+text = "Red/Blue Team"
+align = 1
+
+[node name="Label2" type="Label" parent="windisp/VBoxContainer/topbox/VBoxContainer"]
+margin_top = 202.0
+margin_right = 375.0
+margin_bottom = 226.0
+custom_fonts/font = ExtResource( 5 )
+text = "won"
+align = 1
+
+[node name="CenterContainer2" type="CenterContainer" parent="windisp/VBoxContainer/topbox/VBoxContainer"]
+margin_top = 230.0
+margin_right = 375.0
+margin_bottom = 250.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="MarginContainer" type="MarginContainer" parent="windisp/VBoxContainer"]
+margin_top = 254.0
+margin_right = 375.0
+margin_bottom = 382.0
+mouse_filter = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="windisp/VBoxContainer/MarginContainer"]
+margin_right = 375.0
+margin_bottom = 128.0
+size_flags_horizontal = 3
+
+[node name="MarginContainer6" type="MarginContainer" parent="windisp/VBoxContainer/MarginContainer/VBoxContainer"]
+margin_right = 375.0
+margin_bottom = 14.0
+mouse_filter = 2
+size_flags_vertical = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="windisp/VBoxContainer/MarginContainer/VBoxContainer"]
+margin_top = 18.0
+margin_right = 375.0
+margin_bottom = 40.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="windisp/VBoxContainer/MarginContainer/VBoxContainer/CenterContainer"]
+margin_left = 169.0
+margin_right = 206.0
+margin_bottom = 22.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 6 )
+text = "Tally"
+
+[node name="MarginContainer8" type="MarginContainer" parent="windisp/VBoxContainer/MarginContainer/VBoxContainer"]
+margin_top = 44.0
+margin_right = 375.0
+margin_bottom = 58.0
+mouse_filter = 2
+size_flags_vertical = 3
+
+[node name="redscore" type="CenterContainer" parent="windisp/VBoxContainer/MarginContainer/VBoxContainer"]
+margin_top = 62.0
+margin_right = 375.0
+margin_bottom = 84.0
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="windisp/VBoxContainer/MarginContainer/VBoxContainer/redscore"]
+margin_left = 140.0
+margin_right = 235.0
+margin_bottom = 22.0
+
+[node name="Label" type="Label" parent="windisp/VBoxContainer/MarginContainer/VBoxContainer/redscore/HBoxContainer"]
+margin_right = 82.0
+margin_bottom = 22.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_fonts/font = ExtResource( 6 )
+text = "Red Team "
+
+[node name="redtally" type="Label" parent="windisp/VBoxContainer/MarginContainer/VBoxContainer/redscore/HBoxContainer"]
+margin_left = 86.0
+margin_right = 95.0
+margin_bottom = 22.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 6 )
+text = "0"
+
+[node name="bluescore" type="CenterContainer" parent="windisp/VBoxContainer/MarginContainer/VBoxContainer"]
+margin_top = 88.0
+margin_right = 375.0
+margin_bottom = 110.0
+mouse_filter = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="windisp/VBoxContainer/MarginContainer/VBoxContainer/bluescore"]
+margin_left = 137.0
+margin_right = 237.0
+margin_bottom = 22.0
+
+[node name="Label" type="Label" parent="windisp/VBoxContainer/MarginContainer/VBoxContainer/bluescore/HBoxContainer2"]
+margin_right = 87.0
+margin_bottom = 22.0
+custom_colors/font_color = Color( 0, 0.458824, 1, 1 )
+custom_fonts/font = ExtResource( 6 )
+text = "Blue Team "
+
+[node name="bluetally" type="Label" parent="windisp/VBoxContainer/MarginContainer/VBoxContainer/bluescore/HBoxContainer2"]
+margin_left = 91.0
+margin_right = 100.0
+margin_bottom = 22.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 6 )
+text = "0"
+
+[node name="MarginContainer7" type="MarginContainer" parent="windisp/VBoxContainer/MarginContainer/VBoxContainer"]
+margin_top = 114.0
+margin_right = 375.0
+margin_bottom = 128.0
+mouse_filter = 2
+size_flags_vertical = 3
+
+[node name="controls" type="MarginContainer" parent="windisp/VBoxContainer"]
+margin_top = 386.0
+margin_right = 375.0
+margin_bottom = 414.0
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="windisp/VBoxContainer/controls"]
+margin_right = 375.0
+margin_bottom = 28.0
+size_flags_horizontal = 3
+
+[node name="MarginContainer5" type="MarginContainer" parent="windisp/VBoxContainer/controls/HBoxContainer"]
+margin_right = 77.0
+margin_bottom = 28.0
+mouse_filter = 2
+size_flags_horizontal = 3
+
+[node name="quit" type="Button" parent="windisp/VBoxContainer/controls/HBoxContainer"]
+margin_left = 81.0
+margin_right = 126.0
+margin_bottom = 28.0
+custom_fonts/font = ExtResource( 6 )
+action_mode = 0
+text = "Quit"
+flat = true
+
+[node name="ColorRect" type="ColorRect" parent="windisp/VBoxContainer/controls/HBoxContainer/quit"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+color = Color( 1, 0, 0, 1 )
+
+[node name="Label" type="Label" parent="windisp/VBoxContainer/controls/HBoxContainer/quit/ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 6 )
+text = "Quit"
+align = 1
+valign = 1
+
+[node name="MarginContainer4" type="MarginContainer" parent="windisp/VBoxContainer/controls/HBoxContainer"]
+margin_left = 130.0
+margin_right = 207.0
+margin_bottom = 28.0
+mouse_filter = 2
+size_flags_horizontal = 3
+
+[node name="continue" type="Button" parent="windisp/VBoxContainer/controls/HBoxContainer"]
+margin_left = 211.0
+margin_right = 293.0
+margin_bottom = 28.0
+custom_fonts/font = ExtResource( 6 )
+text = "Continue"
+flat = true
+
+[node name="ColorRect" type="ColorRect" parent="windisp/VBoxContainer/controls/HBoxContainer/continue"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+color = Color( 0.0901961, 0.764706, 0.733333, 1 )
+
+[node name="Label2" type="Label" parent="windisp/VBoxContainer/controls/HBoxContainer/continue/ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 6 )
+text = "Continue"
+align = 1
+valign = 1
+
+[node name="MarginContainer6" type="MarginContainer" parent="windisp/VBoxContainer/controls/HBoxContainer"]
+margin_left = 297.0
+margin_right = 375.0
+margin_bottom = 28.0
+mouse_filter = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer3" type="MarginContainer" parent="windisp/VBoxContainer"]
+margin_top = 418.0
+margin_right = 375.0
+margin_bottom = 547.0
+mouse_filter = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer4" type="MarginContainer" parent="windisp/VBoxContainer"]
+margin_top = 551.0
+margin_right = 375.0
+margin_bottom = 679.0
+mouse_filter = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer5" type="MarginContainer" parent="windisp/VBoxContainer"]
+margin_top = 683.0
+margin_right = 375.0
+margin_bottom = 812.0
+mouse_filter = 2
+size_flags_vertical = 3
+
 [connection signal="pressed" from="VBoxContainer2/HBoxContainer/back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="VBoxContainer2/HBoxContainer/settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="windisp/VBoxContainer/controls/HBoxContainer/quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="windisp/VBoxContainer/controls/HBoxContainer/continue" to="." method="_on_continue_pressed"]

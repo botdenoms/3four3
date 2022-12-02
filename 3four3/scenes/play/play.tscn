@@ -77,6 +77,12 @@ position = Vector2( 0, -150 )
 [node name="8" parent="touchpoints" instance=ExtResource( 6 )]
 position = Vector2( 120, -150 )
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="end_game" from="." to="Hud" method="_on_world_end_game"]
+[connection signal="next_game" from="Hud" to="." method="_on_Hud_next_game"]
 [connection signal="piece_active" from="points/player" to="." method="_on_player_piece_active"]
 [connection signal="piece_active" from="points/player2" to="." method="_on_player2_piece_active"]
 [connection signal="piece_active" from="points/player3" to="." method="_on_player3_piece_active"]
@@ -92,3 +98,4 @@ position = Vector2( 120, -150 )
 [connection signal="touch_event" from="touchpoints/6" to="." method="_on_6_touch_event"]
 [connection signal="touch_event" from="touchpoints/7" to="." method="_on_7_touch_event"]
 [connection signal="touch_event" from="touchpoints/8" to="." method="_on_8_touch_event"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

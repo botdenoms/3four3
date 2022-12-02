@@ -2,11 +2,14 @@ extends Node2D
 
 onready var players = $points
 onready var hud = $Hud
+onready var timer = $Timer
 
 var _turn
 var _using_touch = false
 var _actvite_position = Vector2()
 var _game_over = false
+
+signal end_game(winner)
 
 var points = [
 	{ 'position': Vector2(-120, 150), 'item': 2 },  #0
@@ -46,6 +49,8 @@ func make_move():
 	pass
 
 func check_turn(player):
+	if _game_over:
+		return false
 	return player == _turn
 
 func win_check():
@@ -54,18 +59,26 @@ func win_check():
 	if points[4]['item'] == points[5]['item'] and points[4]['item'] == points[3]['item'] and points[4]['item'] != 0:
 		print('mid horiz win')
 		print('game over, ', _turn, ' wins')
+		_game_over = true
+		timer.start()
 	# (0,150)(0,0)(0,-150)
 	elif points[4]['item'] == points[7]['item'] and points[4]['item'] == points[1]['item'] and points[4]['item'] != 0:
 		print('mid verti win')
 		print('game over, ', _turn, ' wins')
+		_game_over = true
+		timer.start()
 	# (-120,-150)(0.0)(120,150)
 	elif points[4]['item'] == points[6]['item'] and points[2]['item'] == points[4]['item'] and points[4]['item'] != 0:
 		print('diagnol left to right')
 		print('game over, ', _turn, ' wins')
+		_game_over = true
+		timer.start()
 	# (-120,150)(0.0)(120,-150)
 	elif points[4]['item'] == points[8]['item'] and points[0]['item'] == points[4]['item'] and points[4]['item'] != 0:
 		print('diagnol right to left')
 		print('game over, ', _turn, ' wins')
+		_game_over = true
+		timer.start()
 	else:
 		print("proceed with game")
 
@@ -89,6 +102,8 @@ func update_board(pnts):
 		if cld.position == _actvite_position:
 			cld.play_move(pnts)
 	win_check()
+	if _game_over:
+		return
 	change_turn()
 
 func ai_play():
@@ -341,3 +356,13 @@ func _on_8_touch_event(at_position):
 				# if true make move
 				update_board(pnts)
 			# else do nothing
+
+func _on_Hud_next_game():
+	var _err = get_tree().reload_current_scene()
+
+func _on_Timer_timeout():
+	if _turn == State.Team.BLUE:
+		State.increase_tally('Blue')
+	else:
+		State.increase_tally('Red')
+	emit_signal("end_game", _turn)
